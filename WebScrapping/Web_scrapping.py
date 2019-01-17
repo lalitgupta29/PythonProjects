@@ -11,10 +11,10 @@ from bs4 import BeautifulSoup
 import re
 
 # specify the url
-quote_page = 'https://portland.craigslist.org/search/hum?'
+page_link = 'https://portland.craigslist.org/search/hum?'
 
 # query the website and return the html to the variable ‘page’
-page = urllib.request.urlopen(quote_page)
+page = urllib.request.urlopen(page_link)
 
 # parse the html using beautiful soup and store in variable `soup`
 soup = BeautifulSoup(page, 'html.parser')
@@ -34,6 +34,22 @@ pdx_links = []
 for i in range(len(links)):
   if 'portland' in links[i]:
     pdx_links.append(links[i])
-    
 
 
+link = 'https://portland.craigslist.org/clk/hum/d/vancouver-hr-and-accounting-assistant/6796803793.html'
+page = urllib.request.urlopen(link)
+
+# parse the html using beautiful soup and store in variable `soup`
+soup = BeautifulSoup(page, 'html.parser')
+
+html=''
+for i in range(len(soup.contents)):
+    html = html+str(soup.contents[i])
+
+# get compensastion
+get_comp = re.compile(r'compensation: <b>(.+)</b>')
+comp = get_comp.findall(html)
+
+# get emp type
+get_emp_typ = re.compile(r'employment type: <b>(.+)</b>')
+emp_typ = get_emp_typ.findall(html)
