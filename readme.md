@@ -1,1 +1,1 @@
-This repository will caontain different  python pet projects.
+This repository will contain different  python projects I perform.
