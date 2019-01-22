@@ -35,7 +35,7 @@ for i in range(len(links)):
   if 'portland' in links[i]:
     pdx_links.append(links[i])
 
-info ={}
+info = {}
 for link in pdx_links:
   page = urllib.request.urlopen(link)
   
@@ -44,7 +44,7 @@ for link in pdx_links:
   
   html=''
   for i in range(len(soup.contents)):
-      html = html+str(soup.contents[i])
+    html = html+str(soup.contents[i])
   
   # get compensastion
   get_comp = re.compile(r'compensation: <b>(.+)</b>')
@@ -53,5 +53,3 @@ for link in pdx_links:
   # get emp type
   get_emp_typ = re.compile(r'employment type: <b>(.+)</b>')
   emp_typ = get_emp_typ.findall(html)
-
-
