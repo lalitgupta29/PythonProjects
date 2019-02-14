@@ -1,1 +1,1 @@
-This repository will contain different  python projects I perform.
+This repository will contain different python projects I work on.
